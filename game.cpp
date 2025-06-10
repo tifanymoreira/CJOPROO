@@ -749,8 +749,8 @@ private:
             case GameState::LEVEL_TRANSITION:
                 // Toca win.mp3 na transição de nível
                 if (!IsSoundPlaying(victorySound)) PlaySound(victorySound);
-                StopSound(victorySound); //toca o som uma vez só e depois para. se manter a lógica do som como os outros, o som ficará tocando em looping enquanto a tecla enter não for pressionada.
                 if (IsKeyPressed(KEY_ENTER)) {
+                    StopSound(victorySound);
                     state = GameState::PLAYING;
                     currentLevel++;
                     LoadLevel(currentLevel);
